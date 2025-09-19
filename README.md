@@ -1,43 +1,143 @@
-# RISC-V-SoC-Tapeout-Program
-A portfolio documenting the end-to-end design, implementation, and fabrication journey of a RISC-V System-on-Chip (SoC) as part of a national-level initiative using Synopsys EDA tools and the SCL180 PDK.
-
-#### **Program Vision:** A national-level initiative to empower engineering students with the most authentic VLSI experience—from RTL design to actual silicon fabrication (tapeout).
+<div align="center">
+  <br>
+  <h1><img src="https://img.shields.io/badge/RISC--V%20Tapeout%20Program-blue?style=for-the-badge&logo=RISC-V&logoColor=white" alt="RISC-V Logo"></h1>
+  <h1>RISC-V Reference SoC Tapeout Program</h1>
+  <h3>A Journey from RTL to Silicon</h3>
+  <br>
+  <p><b>Project by:</b> NIVETHA N</p>
+  <p><b>Program Vision:</b> A national-level initiative to empower engineering students with the most authentic VLSI experience—from RTL design to actual silicon fabrication.</p>
+  <br>
+</div>
 
 ---
 
-# **🚀 Program Introduction**
+### 🚀 Program Introduction
 
 This project is a complete, hands-on journey to design, implement, and fabricate a **RISC-V System-on-Chip (SoC)** using **Synopsys EDA tools** and the **SCL180 PDK**. It's crafted for students, educators, and professionals aiming to master end-to-end chip development—from RTL design to post-silicon validation.
 
-As part of India’s Semiconductor Mission, this program focuses on building a proven, reusable methodology—from design to silicon—that academic institutions can adopt. This repository serves as a portfolio of my work, documenting my progress through the initial online training phase.
+As part of India’s **Semiconductor Mission**, this program focuses on building a proven, reusable methodology—from design to silicon—that academic institutions can adopt. This repository serves as a portfolio of my work, documenting my progress through the initial online training phase.
 
 ---
 
-### **📋 Program Track & Status**
+### 📋 Program Track & Status
 
-This table provides a live view of my progress through the program's initial training schedule.
-| Initial Setup & Preparation |
-| :--- |  
+This table provides a live view of my progress through the program's initial training schedule. Click on any week to navigate to its detailed folder and view the deliverables and documentation.
 
-| Week  | Theme | Status | Deliverables |
-| :----- | :--- | :--- | :--- |
-| [Week 0](./Week_0/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |  
+<table width="100%">
+  <thead>
+    <tr>
+      <th><div align="left">Week</div></th>
+      <th><div align="left">Theme</div></th>
+      <th><div align="left">Status</div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3" style="background-color:#d4edda; color:#155724; font-weight:bold;"><div align="left">Initial Setup & Preparation</div></td>
+    </tr>
+    <tr>
+      <td><a href="./Week_00/README.md">Week 0</a></td>
+      <td>Repository & Tool Setup</td>
+      <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="background-color:#cce5ff; color:#004085; font-weight:bold;"><div align="left">Recruitment & Training (Online)</div></td>
+    </tr>
+    <tr>
+      <td>Week 1</td>
+      <td>Environment + RTL sim basics</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 2</td>
+      <td>Synthesis & GLS</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 3</td>
+      <td>RISC-V ISA & toolchain</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 4</td>
+      <td>Pipeline bugs, clock gating & CPU GLS</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 5</td>
+      <td>STA fundamentals</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 6</td>
+      <td>CMOS & SPICE with SKY130</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 7</td>
+      <td>OpenLane: floorplan → placement</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 8</td>
+      <td>CTS, routing & post-route STA</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 9</td>
+      <td>Multi-corner timing + sign-off</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+    <tr>
+      <td>Week 10</td>
+      <td>Final polish & documentation</td>
+      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
+    </tr>
+  </tbody>
+</table>
 
-**Key:**
--   ✅ **Complete:** All deliverables for the week have been finished and pushed.
--   ⏳ **Planned:** The work for this week has not yet started.
+**Note:** Selection for the Top 50 participants to continue to the on-site physical design phase will be based on performance during the first 10 weeks of training.
 
 ---
 
-### **🔗 Tools & Technologies Used**
+### 📚 Key Program Highlights
+
+This program covers the complete chip development lifecycle, including:
+-   **RTL Design:** From conceptualization to functional validation.
+-   **Physical Design:** Floorplanning, placement, clock tree synthesis (CTS), and routing.
+-   **Sign-off:** Multi-corner timing analysis, DRC/LVS, and power integrity (IR/EM).
+-   **Silicon Fabrication:** Preparing the final GDSII tapeout kit for fabrication at SCL.
+-   **Post-Silicon Validation:** Testing the fabricated chip.
+
+---
+
+### 🛠️ Tools & Technologies Used
 
 -   **Training Stack:** iverilog, GTKWave, Yosys, OpenSTA, Xschem, ngspice, OpenLane
--   **Version Control:** Git & GitHub
+-   **PDK:** SCL 180 nm (IO 2.5V, Core 1.8V)
+-   **Collaboration:** Git/GitHub for version control
 
 ---
 
-**Supported By:** Semiconductor Laboratory (SCL), Synopsys, VLSI System Design
+### 🧑‍💻 Program Providers & Participant Information
 
-**Contact:** kunalpghosh@vlsisystemdesign.com
+This program is a national-level collaboration to drive innovation in VLSI design and skill development.
 
-*Let's tape out!*
+- **Program Providers:**
+  - **Semiconductor Laboratory (SCL):** A government-owned fab in India.
+  - **Synopsys:** A global leader in electronic design automation (EDA).
+  - **VLSI System Design (VSD):** An organization focused on hands-on VLSI training.
+
+- **Participant:**
+  - **Name:** NIVETHA N
+  - **Role:** Student
+  - **Institution:** [Your University/College Name]
+  - **Participation:** I am one of over 3500 participants in this national initiative.
+  - **Contact:**
+    - **GitHub:** [Your GitHub Profile URL]
+    - **LinkedIn:** [Your LinkedIn Profile URL]
+
+<br>
+<div align="center">
+  <p><i>Let's tape out!</i></p>
+</div>
