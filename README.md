@@ -5,7 +5,7 @@ A portfolio documenting the end-to-end design, implementation, and fabrication j
 
 ---
 
-### **🚀 Program Introduction**
+# **🚀 Program Introduction**
 
 This project is a complete, hands-on journey to design, implement, and fabricate a **RISC-V System-on-Chip (SoC)** using **Synopsys EDA tools** and the **SCL180 PDK**. It's crafted for students, educators, and professionals aiming to master end-to-end chip development—from RTL design to post-silicon validation.
 
@@ -19,7 +19,7 @@ This table provides a live view of my progress through the program's initial tra
 
 | Week | Theme | Status | Deliverables |
 | :--- | :--- | :--- | :--- |
-| **Initial Setup & Preparation** |
+| **Initial Setup & Preparation**         |
 | [Week 0](./Week_00/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |
 
 
