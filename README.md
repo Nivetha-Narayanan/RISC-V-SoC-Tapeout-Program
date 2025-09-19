@@ -19,8 +19,8 @@ This table provides a live view of my progress through the program's initial tra
 | Initial Setup & Preparation |
 | :--- |  
 
-| Week | Theme | Status | Deliverables |
-| :--- | :--- | :--- | :--- |
+| Week  | Theme | Status | Deliverables |
+| :----- | :--- | :--- | :--- |
 | [Week 0](./Week_0/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |  
 
 **Key:**
