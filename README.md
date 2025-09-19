@@ -18,7 +18,7 @@ As part of India’s Semiconductor Mission, this program focuses on building a p
 This table provides a live view of my progress through the program's initial training schedule.
 | Week | Theme | Status | Deliverables |
 | :--- | :--- | :--- | :--- |
-| Initial Setup & Preparation |
+| Initial Setup & Preparation |.....|....|....|
 | [Week 0](./Week_00/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |  
 
 **Key:**
