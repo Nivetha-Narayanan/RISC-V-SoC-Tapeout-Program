@@ -15,7 +15,8 @@ As part of India’s Semiconductor Mission, this program focuses on building a p
 
 ### **📋 Program Track & Status**
 
-This table provides a live view of my progress through the program's initial training schedule.
+This table provides a live view of my progress through the program's initial training schedule.  
+
 |**Initial Setup & Preparation**|
 | Week | Theme | Status | Deliverables |
 | :--- | :--- | :--- | :--- |
