@@ -21,7 +21,7 @@ This table provides a live view of my progress through the program's initial tra
 
 | Week | Theme | Status | Deliverables |
 | :--- | :--- | :--- | :--- |
-| [Week 0](./Week 0/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |  
+| [Week 0](./Week_0/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |  
 
 **Key:**
 -   ✅ **Complete:** All deliverables for the week have been finished and pushed.
