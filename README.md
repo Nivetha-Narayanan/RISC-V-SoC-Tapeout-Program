@@ -119,7 +119,7 @@ This program covers the complete chip development lifecycle, including:
 
 ---
 
-### 🧑‍💻 Program Providers & Participant Information
+### 🧑‍💻 Program Providers 
 
 This program is a national-level collaboration to drive innovation in VLSI design and skill development.
 
@@ -128,14 +128,6 @@ This program is a national-level collaboration to drive innovation in VLSI desig
   - **Synopsys:** A global leader in electronic design automation (EDA).
   - **VLSI System Design (VSD):** An organization focused on hands-on VLSI training.
 
-- **Participant:**
-  - **Name:** NIVETHA N
-  - **Role:** Student
-  - **Institution:** [Your University/College Name]
-  - **Participation:** I am one of over 3500 participants in this national initiative.
-  - **Contact:**
-    - **GitHub:** [Your GitHub Profile URL]
-    - **LinkedIn:** [Your LinkedIn Profile URL]
 
 <br>
 <div align="center">
