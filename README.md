@@ -15,16 +15,13 @@ As part of India’s Semiconductor Mission, this program focuses on building a p
 
 ### **📋 Program Track & Status**
 
-This table provides a live view of my progress through the program's initial training schedule.  
-
+This table provides a live view of my progress through the program's initial training schedule.
 | Week | Theme | Status | Deliverables |
 | :--- | :--- | :--- | :--- |
 <tr>
   <td colspan="4">**Initial Setup & Preparation**</td>
 </tr>
 | [Week 0](./Week_00/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |  
-
-
 
 **Key:**
 -   ✅ **Complete:** All deliverables for the week have been finished and pushed.
