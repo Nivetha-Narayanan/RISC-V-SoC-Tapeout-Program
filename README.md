@@ -1,9 +1,6 @@
 # RISC-V-SoC-Tapeout-Program
 A portfolio documenting the end-to-end design, implementation, and fabrication journey of a RISC-V System-on-Chip (SoC) as part of a national-level initiative using Synopsys EDA tools and the SCL180 PDK.
 
-# 🇮🇳 RISC-V Reference SoC Tapeout Program 🇮🇳
-
-### **Project by:** [Your Name]
 #### **Program Vision:** A national-level initiative to empower engineering students with the most authentic VLSI experience—from RTL design to actual silicon fabrication (tapeout).
 
 ---
@@ -24,18 +21,7 @@ This table provides a live view of my progress through the program's initial tra
 | :--- | :--- | :--- | :--- |
 | **Initial Setup & Preparation** |
 | [Week 0](./Week_00/README.md) | Repository & Tool Setup | ✅ Complete | GitHub repository setup, Linux shell/Git environment check |
-| **Recruitment & Training (Online - Top 50)** |
-| Week 1 | Environment + RTL sim basics | ⏳ Planned | 2 GTKWave screenshots, bug notes |
-| Week 2 | Synthesis & GLS | ⏳ Planned | Screenshots, Yosys report |
-| Week 3 | RISC-V ISA & toolchain | ⏳ Planned | Waveforms, pipeline notes |
-| Week 4 | Pipeline bugs, clock gating & CPU GLS | ⏳ Planned | Waveforms, clock gating slide |
-| Week 5 | STA fundamentals | ⏳ Planned | Setup/Hold report excerpts |
-| Week 6 | CMOS & SPICE with SKY130 | ⏳ Planned | 3 plots, PVT effects one-pager |
-| Week 7 | OpenLane: floorplan → placement | ⏳ Planned | Floorplan snapshot, congestion notes |
-| Week 8 | CTS, routing & post-route STA | ⏳ Planned | Routed layout screenshot |
-| Week 9 | Multi-corner timing + sign-off | ⏳ Planned | Table of WNS/TNS, SDF-GLS logs |
-| Week 10 | Final polish & documentation | ⏳ Planned | PDF report, demo video link |
-| **Selection for Top 50 will occur after Week 10.** |
+
 
 **Key:**
 -   ✅ **Complete:** All deliverables for the week have been finished and pushed.
