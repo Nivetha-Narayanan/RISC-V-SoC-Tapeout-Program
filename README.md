@@ -4,7 +4,7 @@
   <h1>RISC-V Reference SoC Tapeout Program</h1>
   <h3>A Journey from RTL to Silicon</h3>
   <br>
-  <p><b>Project by:</b> NIVETHA N</p>
+  <p><b>Participant:</b> NIVETHA N</p>
   <p><b>Program Vision:</b> A national-level initiative to empower engineering students with the most authentic VLSI experience—from RTL design to actual silicon fabrication.</p>
   <br>
 </div>
