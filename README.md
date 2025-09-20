@@ -41,58 +41,6 @@ This table provides a live view of my progress through the program's initial tra
       <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
     </tr>
     <tr>
-      <td colspan="3" style="background-color:#cce5ff; color:#004085; font-weight:bold;"><div align="left">Recruitment & Training (Online)</div></td>
-    </tr>
-    <tr>
-      <td>Week 1</td>
-      <td>Environment + RTL sim basics</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 2</td>
-      <td>Synthesis & GLS</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 3</td>
-      <td>RISC-V ISA & toolchain</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 4</td>
-      <td>Pipeline bugs, clock gating & CPU GLS</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 5</td>
-      <td>STA fundamentals</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 6</td>
-      <td>CMOS & SPICE with SKY130</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 7</td>
-      <td>OpenLane: floorplan → placement</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 8</td>
-      <td>CTS, routing & post-route STA</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 9</td>
-      <td>Multi-corner timing + sign-off</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
-    <tr>
-      <td>Week 10</td>
-      <td>Final polish & documentation</td>
-      <td><span style="color:#6c757d;font-weight:bold;">⏳ Planned</span></td>
-    </tr>
   </tbody>
 </table>
 
