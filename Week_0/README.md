@@ -60,7 +60,8 @@ $ sudo make install
   ``` bash
   $ yosys -V
 ```
-![Yosys Installation Verification Screenshot](./screenshots/yosys_verify.png)
+![Yosys Installation Verification Screenshot](./Screenshots/yosys_verify.png)
+![Yosys Installation Verification Screenshot](./Screenshots/yosys_verify1.png)
 
 ### **2. Icarus Verilog (Iverilog)**
 
@@ -81,7 +82,7 @@ I ran the command to check the version and confirm a successful installation.
 ```bash
 $ iverilog -V
 ```
-![Iverilog Installation Verification Screenshot](./screenshots/iverilog_verify.png)
+![Iverilog Installation Verification Screenshot](./Screenshots/iverilog_verify.png)
 
 -----
 
@@ -104,7 +105,8 @@ I ran the command to check the version and confirm a successful installation.
 ```bash
 $ gtkwave --version
 ```
-![GTKWave Installation Verification Screenshot](./screenshots/gtkwave_verify.png) 
+![GTKWave Installation Verification Screenshot](./Screenshots/gtkwave_verify.png)   
+![GTKWave Installation Verification Screenshot](./Screenshots/gtkwave_verify1.png) 
 
 ----  
 
