@@ -36,7 +36,7 @@ This table provides a live view of my progress through the program's initial tra
       <td colspan="3" style="background-color:#d4edda; color:#155724; font-weight:bold;"><div align="left">Initial Setup & Preparation</div></td>
     </tr>
     <tr>
-      <td><a href="./Week_00/README.md">Week 0</a></td>
+      <td><a href="./Week_0/README.md">Week 0</a></td>
       <td>Repository & Tool Setup</td>
       <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
     </tr>
