@@ -41,6 +41,13 @@ This table provides a live view of my progress through the program's initial tra
       <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
     </tr>
     <tr>
+       </tr>
+    <tr>
+      <td><a href="./Week_1/README.md">Week 0</a></td>
+      <td>Repository & Tool Setup</td>
+      <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
+    </tr>
+    <tr>
   </tbody>
 </table>
 
