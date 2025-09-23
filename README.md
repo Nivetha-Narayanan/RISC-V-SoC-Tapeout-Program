@@ -82,9 +82,13 @@ This program is a national-level collaboration to drive innovation in VLSI desig
   - **Semiconductor Laboratory (SCL):** A government-owned fab in India.
   - **Synopsys:** A global leader in electronic design automation (EDA).
   - **VLSI System Design (VSD):** An organization focused on hands-on VLSI training.
+---
+### **Acknowledgements**
 
+This **portfolio** is a component of the **RISC-V Reference SoC Tapeout Program**, an initiative of India's Semiconductor Mission.
 
+I extend my sincere gratitude to **[Kunal P. Ghosh](https://www.linkedin.com/in/kunalpghosh/)**, Director and Co-founder of VLSI System Design (VSD), and his team for this transformative hands-on program. This collaboration, which includes **IIT Gandhinagar** and **Synopsys**, is a testament to the power of open-source initiatives in chip design.
 <br>
 <div align="center">
   <p><i>Let's tape out!</i></p>
-</div>
+</div>  
