@@ -8,7 +8,7 @@ This week focuses on the fundamentals of Verilog for RTL design, covering key co
 
 ### **Pre-requisites**
 
-A successful completion of the **[Week 0: Tool Setup](./Week_0/README.md)** task is required for this week's labs. This ensures you have the necessary environment and tools ready to begin. The following tools should be installed and verified in your Linux/WSL environment:
+A successful completion of the **[Week 0: Tool Setup](./RISC-V-SoC-Tapeout-Program/Week_0/README.md)** task is required for this week's labs. This ensures you have the necessary environment and tools ready to begin. The following tools should be installed and verified in your Linux/WSL environment:
 * **Yosys** (for synthesis)
 * **Iverilog** (for RTL simulation)
 * **GTKWave** (for waveform viewing)
