@@ -1,1 +1,136 @@
+Day 3:Combinational and Sequential Optimization
+Combinational logic Optimisation
+  -Squeezing the logic to get the most optimised design(Area and Power savings)
+  -Constant Propagation(Direct Optimisation)
+  -Boolean Logic Optimisation(K-map,Quine muickey,..)
+E.g:Y=((AB)+C)':
+   if A=0
+  then Y=(0+c)'
+in cmos tech,need 6mos trans for :Y=((AB)+C)':2mos trans for Y=(0+c)';
+Boolean Logic OPtimisation:
+  An complex expression into simple expression boolean logic.
+---
+Sequential Logic Optimisation:
+-Basic
+    Sequential Constant propagation
+-Advanced(Not covered as part of lab in this course)
+ State optimisation(optimisation of unused states)
+ Retiming
+Sequential Logic Cloning(Floor Plan Aware Synthesis)
+for optimisation:
+"yosys 
+we use command as
+opt_clean -purge"
+Combinational logic Optimisation Lab:
+1.opt_check.v 
+"module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule" after optimisation is equal to y=ab;
+2.opt_check2.v
+"module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule" is equal to (a'b+a)=(a'+a)(a+b)=(1)(a+b)=(a+b) after optimisation.
+3.opt_check3.v
+"module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule" equal to y = a & c & b;
+4.opt_check4.v
+"module opt_check4 (input a , input b , input c , output y);
+ assign y = a?(b?(a & c ):c):(!c);
+ endmodule"
+equalto y = (a & c) | (~a & ~c)=a xnor c
+//paste its show and netlist screenshots for opt_check4
 
+5.multiple_module_opt.v
+"
+module sub_module1(input a , input b , output y);
+ assign y = a & b;
+endmodule
+
+
+module sub_module2(input a , input b , output y);
+ assign y = a^b;
+endmodule
+
+
+module multiple_module_opt(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module1 U1 (.a(a) , .b(1'b1) , .y(n1));
+sub_module2 U2 (.a(n1), .b(1'b0) , .y(n2));
+sub_module2 U3 (.a(b), .b(d) , .y(n3));
+
+assign y = c | (b & n1); 
+
+
+endmodule" after optimisation y = c | (a & b);
+
+6.mutiple_module_opt2.v
+"
+module sub_module(input a , input b , output y);
+ assign y = a & b;
+endmodule
+
+
+
+module multiple_module_opt2(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module U1 (.a(a) , .b(1'b0) , .y(n1));
+sub_module U2 (.a(b), .b(c) , .y(n2));
+sub_module U3 (.a(n2), .b(d) , .y(n3));
+sub_module U4 (.a(n3), .b(n1) , .y(y));
+
+
+endmodule" after optimisation y = 1'b0;
+Inputs a, b, c, d are irrelevant to the output.
+This is a constant-zero circuit.
+//screenshots
+---
+Sequential Logic Optimisation
+let see 5 cicuit:
+gvim dff_const1.v -o dff_const2.v -o dff_const3.v -o dff_const4.v -o dff_const5.v
+ and thier gtkwave are as follows:
+and logic circuit:
+
+---
+Seq Optimisation unused outputs part1:
+1.count_opt.v
+"module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule"
+here we one primary output based on only count[0]..So only one ff is present..other two unused are optimised.
+//show screenshot
+2.count_opt2.v
+"module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = (count[2:0] == 3'b100);
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule" after optimisation q = count[2] & ~count[1] & ~count[0];
+here we have 3 three ff.since all states are used for primary output q.
+//show screenshot
+
+
+
+
+
+
+  
