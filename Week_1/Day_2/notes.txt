@@ -36,4 +36,51 @@ endmodule
 in hierarchical it creates the sub module 1 has or cell and 2 has and gate ,it connects the submodules.
 in flatten ,it gives entire connection rather than each module connection
 Why we need submodule besd syth?
- since when we used same module multiple times in one design,by using the submodule syth used multiple times rather than sythesis multiple times
+ since when we used same module multiple times in one design,by using the submodule syth used multiple times rather than sythesis multiple times..
+here is the screenshot both synthesis
+---
+Why we need flop in circuit?
+   -in digital design,ther is hazard cindition that is momentary change in the output when there no need of change
+   -while cascading  these hazard design,create glicthes in output
+   -to avoid this one ,we inserted the flipflop using clock no glithes in output
+    -we need to intialize the flop using synchrouns and asynchrouns set and reset,otherwise the circuit gives garpage value
+Dff coding styles
+ -Let see the each sytles individaully
+ gvim -c "vsplit dff_asyncres_syncres.v | split dff_asyncres.v | vsplit dff_async_set.v"  dff_syncres.v
+these are the four style files
+flop simulations :
+
+their gtkwave screenshots are:
+---
+```in yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show```
+similar other two styles
+all styles show screenshots are:
+
+---
+Optimisation:
+let us cinsider the num multiplied by 2
+is we really need hardware?
+  No.since appeding one zero in last then we get answer
+here is synthesized netlist and logic circuit:
+
+Special case:
+for a number multiplied by 9 that is eqaul to num*(8+1)=num*8+num;
+num*8-->appending three zeros
++
+num
+={num,num}
+here is the synthsized netlist is:
+
+
+
+
+
+
+
+
