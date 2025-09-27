@@ -197,8 +197,5 @@ yosys
 |  |
 | :---: |
 
------
+-----  
 
-**Acknowledgement:** Always add the acknowledgement.
-
-**Acknowledgement:** Always add the acknowledgement.
