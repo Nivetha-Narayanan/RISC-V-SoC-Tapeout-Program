@@ -78,6 +78,7 @@ These steps detail how to clone the necessary workshop repository and run your f
       * **`lib`**: Contains the standard cell library used for synthesis.
       * **`verilog_models`**: Contains the Verilog models for standard cells.
       * **`verilog_files`**: Contains the source Verilog files and their testbenches for lab experiments.
+    
         ![Navigate and Clone the Repository and Explore the Repository Structure](day1_1.png)
         
 3.  **Run Simulation and View Waveforms:**
@@ -99,7 +100,7 @@ These steps detail how to clone the necessary workshop repository and run your f
     iverilog good_mux.v tb_good_mux.v
     ls # You will see the a.out file
     ```
-    
+  ![Good_mux.v and Good_nux_testbench](day1_0.png)   
 ![Compile the Design and Testbench](day1_2.png)  
      **Execute the Simulation:** Running the compiled file executes the testbench, which applies stimulus to the design and dumps the resulting signal activity into a VCD file.
   <!-- end list -->
