@@ -1,0 +1,100 @@
+Day4:GLS, Blocking and Non-blocking, and Synthesis-Simulation Mismatch
+
+What is GLS?
+ -Gate level Simulation
+ -Running the testbench with Netlist as Design Under Test
+  -Netlist is logically same as RTL code 
+    Same Test bench will align with the design
+Why GLS?
+ -Verify the logical correctness of design after synthesis
+ -Ensuring the timing of design is met
+   -For this GLS needs to be run with delay annotation(not dicussed in this now).
+GLS using IVERILOG:
+  //imag
+Design we have assign y=(a&b)|c;
+netlist contains and g1(.a(a),.b(b),.y(i)) ,or g2(.a(i),.b(c),.y(y))
+and ,or gates cell info in gate level verilog models contains Timig awre (ensures functionality +Timing) and functional
+Synthesis Simulation mismatch:
+  happens because of
+    -Missing Sensitivity List
+    -Blocking vs Non Blocking assignments
+   - NOn standard verilog coding  
+Missing Sensitivity List:
+" module(input i0,input i1,input sel,output reg y);
+always @(sel)
+begin 
+if(sel)
+  y=i0;
+else
+ y=i1;
+end
+endmodule
+" here whenever there is change in sel ,coorespoding input is assigned to y but i0 or i1 even changes ,it dont reflect in y after sel chnage
+Whereas
+" module(input i0,input i1,input sel,output reg y);
+always @(sel)
+begin 
+if(sel)
+  y=i0;
+else
+ y=i1;
+end
+endmodule
+" here whenever changes in inputs reflect in y;
+---
+Blocking vs Non-Blocking Statements:
+-Inside always block:
+Blocking(=)
+ -Executes the statements in the order it is written
+ -So firsr statement is evaluated before the secong statement
+Non Blocking(<=):
+  -Executes all the RHS when always block is enteres and assign to LHS.
+  -Executes parallely
+Lab:
+"bash
+gvim ternary_operator_mux.v -o bad_mux.v -o good_mux.v
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+"
+//screenshot
+"bash
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+"
+//screenshot
+"//bad mux
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
+./a.out
+gtkwave bad_mux.vcd
+"
+//screenshot
+here there is no mismatch since i used new version of yosys so mux2:1 is synthesis same for all the one
+---
+Blocking_caveat.vcd
+"
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule"
+"bash
+iverilog blocking_caveat.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.v
+"
+//screenshots
+"bash
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.v
+"
+//screenshot
+
+we clearly see the there is mismatch
+
+
