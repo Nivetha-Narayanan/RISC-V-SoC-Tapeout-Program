@@ -1,9 +1,4 @@
-# Day 2 
-
-Here is a corrected and organized summary of your second day of tasks, covering Standard Cell Libraries, Synthesis Methods, and Sequential Logic.
-
------
-
+# Day 2: Timing Libs, Hierarchical vs. Flat Synthesis, and Efficient Flop Coding 
 ## 1\. Introduction to the Standard Cell Library (`.lib`)
 
 The `.lib` file is the fundamental reference for the synthesis tool, defining all the physical building blocks for your chip.
@@ -29,7 +24,9 @@ The `.lib` file contains crucial data for every logic gate (cell):
   * **Cell Flavors**: The library contains different versions of the same logic function (e.g., `and2_0`, `and2_2`).
       * **Wider Cell (High Drive)**: Larger area, lower delay (faster), higher power consumption.
       * **Smaller Cell (Low Drive)**: Less area, higher delay (slower), lower power consumption.
- ![Day 2 Task 1 Screenshot](screenshot/day2_1.png)
+        
+ ![Day 2 Task 1 Screenshot](screenshots/day2_1.png)  
+ 
 -----
 
 ## 2\. Hierarchical vs. Flat Synthesis
@@ -48,10 +45,10 @@ endmodule
 
   * **Hierarchical Synthesis**: The netlist maintains the boundaries of `sub_module1` and `sub_module2` as distinct blocks. It connects the modules rather than individual gates.
   * **Flat Synthesis**: The netlist collapses the hierarchy, treating the entire design as one set of logic. It produces the most optimized circuit (just one AND gate connected to one OR gate).
- ![Day 2 Task 1 Screenshot](screenshot/day2_2.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_3.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_4.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_5.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_2.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_3.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_4.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_5.png)
 ### Why We Need Sub-module Based RTL (Hierarchy)
 
 The structure is used for **design management** and **productivity**, not primarily for final optimization.
@@ -83,13 +80,13 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show # This command generates the output for the screenshot
 ```
- ![Day 2 Task 1 Screenshot](screenshot/day2_6.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_7.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_8.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_9.png)
-  ![Day 2 Task 1 Screenshot](screenshot/day2_10.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_11.png)
- ![Day 2 Task 1 Screenshot](screenshot/day2_12.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_6.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_7.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_8.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_9.png)
+  ![Day 2 Task 1 Screenshot](screenshots/day2_10.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_11.png)
+ ![Day 2 Task 1 Screenshot](screenshots/day2_12.png)
  
 
 -----
@@ -108,9 +105,9 @@ The synthesis tool applies mathematical tricks to simplify arithmetic logic into
         assign y = a * 2; 
     endmodule 
     ```
-    ![Day 2 Task 1 Screenshot](screenshot/day2_13.png)
-    ![Day 2 Task 1 Screenshot](screenshot/day2_14.png)
-    ![Day 2 Task 1 Screenshot](screenshot/day2_15.png)
+    ![Day 2 Task 1 Screenshot](screenshots/day2_13.png)
+    ![Day 2 Task 1 Screenshot](screenshots/day2_14.png)
+    ![Day 2 Task 1 Screenshot](screenshots/day2_15.png)
 
 ### Case 2: Multiplication by 9
 
@@ -123,7 +120,7 @@ The synthesis tool applies mathematical tricks to simplify arithmetic logic into
         assign y = a * 9; 
     endmodule
     ```
-![Day 2 Task 1 Screenshot](screenshot/day2_16.png)
-![Day 2 Task 1 Screenshot](screenshot/day2_17.png)  
+![Day 2 Task 1 Screenshot](screenshots/day2_16.png)
+![Day 2 Task 1 Screenshot](screenshots/day2_17.png)  
 
 ---  
