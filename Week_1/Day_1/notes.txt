@@ -1,1 +1,41 @@
+1.Introduction to iverilog,desidn and test bench
 
+    Simulator
+        - Simulator is the tool used for simulating the design.
+        - RTL design is checked for adherence to the spec by simmulating the design.
+         -here we uesd the iverilog.
+    Design
+      - DEsign is the actual verilog code or set of verilog codes which has the intended                   functionality to meet with required specifications.
+    Testbench
+       -TestBench is the setup to apply stimulus(test_vectors)to the design to check its functionality.
+
+How simulator works?
+ - simulator looks for the changes on the input signals.
+ -Upon change to the input the output is evaluated.
+   if no change to the input,no change to the output.
+-Simulator is looking for the change in the values of input.
+-Design may have 1 or more primary inputs ,1 or more primary outputs.
+-TB doesn't have a primary input or primary output...
+tesy bench(image )
+Iverilog based Simulation Flow:
+  -Design and testbench is appilied to iverilog simulator...
+  -simulator looks for change in input and ots output is dumped into vcd file called Value Change Dump and to  view output in waveform  we used the gtkwave tool
+(image)
+----
+  in VSD folder , make directory called VLSI and install the VSD flow and git clone  "https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop"
+ 'bash 
+ sudo -i
+ cd /home/vsd/vlsi
+ git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop
+after clone you will see,
+cd sky130RTLDesignAndSynthesisWorkshop
+ls
+cd my_lib contains all our library files 
+cd lib 
+ls contains the stardend cell library which is uesd for our synthesis...
+cd ..
+cd verilog_models ths contains all stardand cell verilog models
+cd ..
+cd ..
+cd verilog_files which contains our lab expt contains verilog sources file and its testbench 
+`
