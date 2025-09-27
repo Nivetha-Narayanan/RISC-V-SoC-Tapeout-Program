@@ -1,0 +1,39 @@
+Introsuction to dot lib 
+  1.unstanding standard library name  "sky130_fd_sc_hd__tt_025C_1v80.lib"
+    -PVT--> is process,Voltage,Temperature
+    -tt means typical process -variations due to fabrication
+    -025C means temoerature
+    -1v80 means voltage
+    -all these together based that the silicon to be works
+ 2.sky130_fd_sc_hd__tt_025C_1v80.lib" tells
+  -technology(Cmos)
+  -delay lookup table
+  -contains all cells with different flavors
+  -tells each cells leakage power,area and delay for all input combination of  cell
+let we use for and gate  with different flavor of and2_0 ,and2_2,and2_4 cell:
+  (imag)
+-we interrept that area incraeses even though they are samw logic cell and 2,
+   -wider cell -large area,delay less,consume high power
+   -smaller cell-less area,delay high,consume less power
+--
+what is heirachical synthesis and flat synthesis?
+ one multiplr_modules(contains sub modules)-sub modules are instantiated in the top module verolog code
+#multiple_module.v 
+e.g:module sub_module2 (input a, input b, output y);
+	assign y = a | b;
+endmodule
+
+module sub_module1 (input a, input b, output y);
+	assign y = a&b;
+endmodule
+
+
+module multiple_modules (input a, input b, input c , output y);
+	wire net1;
+	sub_module1 u1(.a(a),.b(b),.y(net1));  //net1 = a&b
+	sub_module2 u2(.a(net1),.b(c),.y(y));  //y = net1|c ,ie y = a&b + c;
+endmodule
+in hierarchical it creates the sub module 1 has or cell and 2 has and gate ,it connects the submodules.
+in flatten ,it gives entire connection rather than each module connection
+Why we need submodule besd syth?
+ since when we used same module multiple times in one design,by using the submodule syth used multiple times rather than sythesis multiple times
