@@ -119,6 +119,86 @@ These steps detail how to clone the necessary workshop repository and run your f
  ![View the Output Waveforms](day1_4.png)  
       * The GTKWave GUI will open, allowing you to select signals and view the output as a waveform.
 
+-----    
+## 1\. Introduction to Synthesis
+
+### Synthesizer
+
+  * A **Synthesizer** is the electronic design automation (EDA) tool used for converting the **RTL (Register-Transfer Level) code** into a **Netlist**.
+  * In this course, **Yosys** is used as the synthesizer.
+
+### Synthesis Process Flow
+
+  * The **Design (RTL)** and the **Standard Cell Library (`.lib`)** are given as inputs to the Yosys tool.
+  * The output is a **Netlist file**.
+
+|  |
+| :---: |
+
+### Netlist
+
+  * A **Netlist** is the representation of the design in the form of interconnected **standard cells** present in the `.lib` file.
+  * **Synthesis** performs the **RTL to Gate-level translation**, where the behavioral description is mapped onto physical gates and their connections.
+
+## 2\. Standard Cell Library (`.lib`)
+
+### What is `.lib`?
+
+  * A `.lib` file is a collection of logical modules, including basic logic gates (**AND, OR, NOT**, etc.), flip-flops, and other cells.
+  * It contains different **flavors** of the same basic gate (e.g., 2-input NAND, 3-input NAND) and also different drive strengths (delays) for the same gate.
+
+### Why Different Flavors?
+
+  * The **combinational delay** in a logic path determines the maximum operating speed (frequency) of the circuit.
+  * We need faster cells (high drive strength) to meet tight **performance (setup time)** requirements.
+  * We also need slower cells (lower drive strength) in specific paths to help meet the **timing requirements for "HOLD"** constraints. The choice truly depends on the circuit design and timing analysis.
+
+## 3\. Yosys Synthesis Setup and Commands
+
+The following commands are used within the Yosys environment to perform the synthesis:
+
+| Command | Purpose |
+| :--- | :--- |
+| `read_liberty -lib <path/to/.lib>` | Reads the standard cell library file (e.g., `sky130_fd_sc_hd__tt_025C_1v80.lib`). |
+| `read_verilog <design_file.v>` | Reads the Verilog RTL design file (e.g., `good_mux.v`). |
+| `synth -top <module_name>` | Executes the main synthesis pass, converting RTL to a generic gate netlist. |
+| `abc -liberty <path/to/.lib>` | Performs logic optimization and technology mapping using the `ABC` tool, mapping generic gates to specific standard cells in the `.lib`. |
+| `show` | Displays a graphical representation of the final gate-level netlist. |
+| `write_verilog -noattr <netlist_file.v>` | Writes the final synthesized netlist to a Verilog file (e.g., `good_mux_netlist.v`). |
+
+### Yosys Command Execution
+
+```bash
+yosys
+> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+> read_verilog good_mux.v
+> synth -top good_mux
+> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+> show
+> write_verilog -noattr good_mux_netlist.v
+```
+![yosys](day1_5.png)  
+![yosys](day1_6.png)  
+![yosys](day1_7.png)  
+![yosys](day1_8.png)  
+![yosys](day1_9.png)    
+
+## 4\. Verification of the Synthesized Netlist
+
+### How to Verify?
+
+  * The synthesized **Netlist** and the **Testbench** (the exact same one used for RTL simulation) are applied to the **Iverilog** simulator.
+  * The simulator generates a **VCD file**, which is then viewed as a waveform using the **GTKWave** tool.
+
+### Verification Note
+
+  * **Crucially, the primary inputs and outputs are the same for both the original RTL design and the synthesized netlist.** This allows the same testbench to be used to verify both, ensuring the synthesis process did not alter the design's functionality (**functional equivalence**).
+
+|  |
+| :---: |
+
 -----
+
+**Acknowledgement:** Always add the acknowledgement.
 
 **Acknowledgement:** Always add the acknowledgement.
