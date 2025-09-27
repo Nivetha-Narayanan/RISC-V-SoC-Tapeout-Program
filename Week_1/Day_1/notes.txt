@@ -37,5 +37,47 @@ cd ..
 cd verilog_models ths contains all stardand cell verilog models
 cd ..
 cd ..
-cd verilog_files which contains our lab expt contains verilog sources file and its testbench 
+cd verilog_files which contains our lab expt contains verilog sources file and its testbench
+iverilog good_mux.v tb_good_mux.v
+ls
+we able to see a.out file
+./a.out
+then we see the dumped vcd file named as  tb_good_mux.vcd 
+gtkwave tb_good_mux.vcd 
+we see output as a waveform using the gtkwave tool..
 `
+---
+Synthesizer 
+  -tool used for  converting the  RTL to netlist
+ - in this course ,we used the yosys as a synthesizer
+Design and .lib given to the yosys tool ,it gives netlist file..
+yosys Setup
+  -read_verilog command used to read the verilog design 
+  -read_liberty command used to read .lib
+  -write_verilog command to writeout the netlist...
+ -Netlist is the represention of design in form of standard cell present in .lib...
+(imag)
+Verify the synthesis
+  -netlist and testbench (same as used in stimulator) is applied to iverilog and it gives the vcd file and then vcd file is viewws as waveform using gtkwave tool.
+Note: the primary input and output is same for both RTL design and synthesized netlist.(Smae testbench is used).
+(imag)
+---
+Synthesis
+  -RTL Design:Behavioural representation of required specification(In VHDL)..
+  -how to map a RTL VHDL code into Digital Logic Circuit?
+     RTL into Gate level translation.the design is coverted into gate and connections are made between the gates .This is givenout as file as "Netlist"
+What is .lib?
+   -collection of logical modules (includeing basic logic gates AND,OR,NOT etc,. )
+    -different flavors of same gate(2 i/p, 3i/p and each gate delay vary )
+Why we need a diiferent flavors of same gate?
+  -Combinational delay in logic path determines the max speed of operation od digital logic circuit.
+`  -We need a faster cell to meet the required performance and as we need cell that works slow to meet "HOLD" ..it truly depends on cicuit design.
+``yosys
+>read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+>read_verilog good_mux.v
+>synth -top good_mux
+>abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+>show
+>write_verilog -noattr good_mux_netlist.v
+``
+
