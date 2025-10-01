@@ -217,4 +217,6 @@ screenshot
 ---
 Summary
 
+---  
+"https://github.com/vlsienthusiast00x/RTL_workshop/tree/main/Day_5#2-inferred-latches-in-verilog"
 
