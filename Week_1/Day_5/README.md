@@ -51,8 +51,8 @@ begin
 end
 endmodule
 ```
-![Day 5 Output Screenshots](screenshots/day5_1.png)
-![Day 5 Output Screenshots](screenshots/day5_1.png)
+![Day 5 Output Screenshots](screenshots/day5_3.png)
+![Day 5 Output Screenshots](screenshots/day5_4.png)
 ### Complete `case` Statement (No Latch)
 
 The solution for combinational logic is adding a `default` case or assigning a default value at the start of the `always @(*)` block.
@@ -69,8 +69,8 @@ begin
 end
 endmodule
 ```
-![Day 5 Output Screenshots](screenshots/day5_1.png)
-![Day 5 Output Screenshots](screenshots/day5_1.png)
+![Day 5 Output Screenshots](screenshots/day5_5.png)
+![Day 5 Output Screenshots](screenshots/day5_6.png)
 
 ### Bad Case (Wildcard)
 
@@ -91,8 +91,8 @@ endmodule
 ```
 
 **Reason:** Using **wildcards (`?`)** can lead to priority encoding or non-portable synthesis results. For explicit MUX logic, listing all states (`00`, `01`, `10`, `11`) or using `default` is better.  
-![Day 5 Output Screenshots](screenshots/day5_1.png)
-![Day 5 Output Screenshots](screenshots/day5_1.png)
+![Day 5 Output Screenshots](screenshots/day5_7.png)
+
 
 ### Partial Assignment in Case (LATCH INFERRED for `x`)
 
@@ -116,8 +116,8 @@ endmodule
 ```
 
 **Explanation:** A **latch is inferred for output `x`** because it is not assigned a value when `sel` is `2'b01`. The variable `x` must hold its previous value in that case.  
-![Day 5 Output Screenshots](screenshots/day5_1.png)
-![Day 5 Output Screenshots](screenshots/day5_1.png)
+![Day 5 Output Screenshots](screenshots/day5_8.png)
+
 
 -----
 
@@ -136,7 +136,7 @@ endmodule
 ### Hardware Structure: Ripple Carry Adder (RCA)
 
 An RCA adds binary numbers using a chain of **full adders (FA)**. The carry-out of each stage connects to the carry-in of the next stage.
-![Day 5 Output Screenshots](screenshots/day5_1.png)  
+ 
 
 -----
 
@@ -158,7 +158,7 @@ end
 end
 endmodule
 ```
-![Day 5 Output Screenshots](screenshots/day5_1.png)    
+![Day 5 Output Screenshots](screenshots/day5_9.png)    
 
 ---  
 
@@ -186,7 +186,7 @@ y_int = 8'b0;
 end
 endmodule
 ```
-![Day 5 Output Screenshots](screenshots/day5_1.png)    
+![Day 5 Output Screenshots](screenshots/day5_10.png)    
 
 ---
 ### 8:1 DEMUX using `for` loop
@@ -206,7 +206,7 @@ end
 end
 endmodule
 ```
-![Day 5 Output Screenshots](screenshots/day5_1.png)  
+![Day 5 Output Screenshots](screenshots/day5_11.png)  
 
 ---
 
@@ -240,7 +240,7 @@ assign sum[7:0] = int_sum;
 assign sum[8] = int_co[7];
 endmodule
 ```
-![Day 5 Output Screenshots](screenshots/day5_1.png)  
+![Day 5 Output Screenshots](screenshots/day5_12.png)  
 
 -----
 
@@ -256,4 +256,3 @@ Day 5 focused on writing **synthesis-friendly Verilog** by:
 
 -----
 
-**Acknowledgement:** Always add the acknowledgement.
