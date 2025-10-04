@@ -48,6 +48,11 @@ This table provides a live view of my progress through the program's initial tra
       <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
     </tr>
     <tr>
+      <tr>
+      <td><a href="./Week2/README.md">Week 2</a></td>
+      <td>BabySoC Fundamentals & Functional Modelling</td>
+      <td><span style="color:green;font-weight:bold;">✅ Complete</span></td>
+    </tr>
   </tbody>
 </table>
 
