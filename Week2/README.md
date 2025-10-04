@@ -78,7 +78,7 @@ The $\text{BabySoC}$ is a mixed-signal system, integrating essential digital and
 
 ***
 ![PLL image](screenshots/PLL.png)  
-![DAC Image](screenshots/DAC.png)  
+![DAC Image](screenshots/DAC.jpg)  
 
 ### 2. BabySoC Functionality and Role 
 
