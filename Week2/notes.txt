@@ -300,4 +300,9 @@ abc -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 show vsdbabysoc
 "
-
+Post-Synthesis Simulation:
+"iverilog -o output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM  -I src/include/ -I src/module/ src/module/testbench.v
+ cd output/post_synth_sim
+ vvp post_synth_sim.out
+gtkwave post_synth_sim.vcd
+"
