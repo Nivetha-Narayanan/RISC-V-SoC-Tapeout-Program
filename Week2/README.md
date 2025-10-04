@@ -224,4 +224,60 @@ yosys> write_verilog vsdbabysoc.synth.v
 yosys> abc -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show vsdbabysoc
 ```
-![week2_output](screenshots/week2_5.png)   
+![week2_output](screenshots/week2_5.png)     
+
+---  
+## Post-Synthesis Simulation 
+
+This simulation step verifies the functional correctness of the design after synthesis, using the gate-level netlist ($\text{GLS}$) and confirming all logic maps correctly to standard cells.
+
+---
+
+### Execution and Viewing Results
+
+Follow these steps to compile, execute the gate-level simulation, and analyze the waveforms:  
+```bash
+iverilog -o output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM  -I src/include/ -I src/module/ src/module/testbench.v
+
+ cd output/post_synth_sim
+
+ vvp post_synth_sim.out
+
+gtkwave post_synth_sim.vcd
+```
+
+
+| Command | Purpose |
+| :--- | :--- |
+| `iverilog -o output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM -I src/include/ -I src/module/ src/module/testbench.v` | **Compiles the Gate-Level Netlist:** This command successfully compiles your testbench and links it with the necessary synthesized netlist and standard cell library models (which are correctly referenced via the defined include paths). |
+| `cd output/post_synth_sim` | Navigates into the simulation output directory. |
+| `vvp post_synth_sim.out` | **Executes the GLS.** This runs the compiled gate-level simulation and generates the waveform file (`post_synth_sim.vcd`). |
+| `gtkwave post_synth_sim.vcd` | **Opens the waveform file** in $\text{GTKWave}$ for visual confirmation of functional correctness. |  
+
+![week2_output](screenshots/week2_6.png)    
+![week2_output](screenshots/week2_7.png)    
+![week2_output](screenshots/week2_8.png)    
+
+---   
+## Pre-Synthesis vs. Post-Synthesis Simulation 
+
+| Feature | Pre-Synthesis (RTL Simulation) | Post-Synthesis (GLS Simulation) |
+| :--- | :--- | :--- |
+| **Input Code** | **Original $\text{Verilog}$ ($\text{RTL}$)**—The human-written design. | **Synthesized Netlist ($\text{GLS}$)**—The design converted to standard gates. |
+| **Primary Goal** | Verify **Functional Logic**. | Verify **Tool Accuracy and Structural Equivalence**. |
+| **What it Checks** | Confirms that the high-level algorithms and logic *work as intended* (ignoring physical delays). | Confirms the synthesis tool (like $\text{Yosys}$) correctly preserved the logic when mapping it to the physical standard cells ($\text{sky130}$). |
+| **Errors Detected** | Logic flaws, state machine bugs, conceptual errors. | Errors introduced by the synthesis tool, incorrect library linking, or gate-level structural problems. |
+| **When it's Done** | Early stage, before synthesis. | After synthesis, before physical placement and routing. |  
+
+---
+# Summary  
+
+1.  **SoC Definition:** We understood that a **System-on-Chip ($\text{SoC}$)** is a complete system on a single chip, and the **VSDBabySoC** is a simplified, educational model proving the data flow between a **RISC-V CPU ($\text{RVMYTH}$)**, a **PLL** clock source, and a **DAC** analog output.
+
+2.  **$\text{RTL}$ Generation and Setup:** The process began by setting up the environment ($\text{venv}$) and generating the $\text{RTL}$ $\text{Verilog}$ code for the $\text{RVMYTH}$ core from $\text{TL-Verilog}$ using **Sandpiper-SaaS**, preparing all source files for the synthesis flow.
+
+3.  **Two-Phase Verification (Logic Check):** We perform **Pre-Synthesis Simulation** (on the original $\text{RTL}$) to confirm the *design logic* is correct, and **Post-Synthesis Simulation** ($\text{GLS}$) to confirm the $\text{Yosys}$ tool accurately converted the design into the $\text{sky130}$ **standard cell netlist**.
+
+4.  **Key Tool Flow:** The primary tools used were **Iverilog** and **GTKWave** for simulation, **Sandpiper-SaaS** for $\text{RTL}$ generation, and **Yosys** for converting the behavioral $\text{RTL}$ into the structural gate-level netlist necessary for the final tapeout process.
+
+---
