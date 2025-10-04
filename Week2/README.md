@@ -174,8 +174,9 @@ The $\text{SoC}$ integrates a mix of digital and analog/mixed-signal $\text{IP}$
 | `source sp_env/bin/activate` | **Activates** the virtual environment. |
 | `pip install pyyaml click sandpiper-saas` | Installs the $\text{Sandpiper-SaaS}$ tool. |
 | **Compile $\text{TL-Verilog}$ to $\text{RTL}$** | |
-| `sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/` | Compiles the $\text{TL-Verilog}$ file (`rvmyth.tlv`) into standard $\text{Verilog}$ ($\text{rvmyth.v}$). |  
-![week2_output](screenshots/week2_1.png) 
+| `sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/` | Compiles the $\text{TL-Verilog}$ file (`rvmyth.tlv`) into standard $\text{Verilog}$ ($\text{rvmyth.v}$). |       
+
+![week2_output](screenshots/week2_1.png)   
 
 -----
 
