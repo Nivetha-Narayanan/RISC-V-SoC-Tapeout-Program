@@ -1,4 +1,11 @@
-WEEK_2_RISC_V_SOC_TAPEOUT_PROGRAM_VSD
+Reference:
+https://github.com/manili/VSDBabySoC
+https://github.com/hemanthkumardm/SFAL-VSD-SoC-Journey/tree/main/12.%20VSDBabySoC%20Project
+https://github.com/Dhinu29/P_DINESH_WEEK_2_RISC_V_SoC_Tapeout_Program_VSD/tree/main
+---
+
+WEEK_2_RISC_V_SOC_TAPEOUT_PROGRAM_VSD  
+
 ---
 Week 2 Task – BabySoC Fundamentals & Functional Modelling
 Objective:
@@ -146,3 +153,8 @@ The $\text{SoC}$ integrates a mix of digital and analog/mixed-signal $\text{IP}$
 **Digital-Analog Modeling Note:** Since standard $\text{Verilog}$ synthesis tools cannot process analog circuits, the $\text{PLL}$ and $\text{DAC}$ are functionally modeled using the $\text{Verilog}$ **`real` datatype** to simulate their behavior during the digital simulation phase.
 
 ***
+---
+Project Structure
+src/include/ - Contains header files (*.vh) with necessary macros or parameter definitions.
+src/module/ - Contains Verilog files for each module in the SoC design.
+output/ - Directory where compiled outputs and simulation files will be generated.
