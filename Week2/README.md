@@ -52,7 +52,7 @@ SoCs are often categorized based on the complexity of their core processor and t
 | SoC Type | Core Component | Primary Application & Characteristics |
 | :--- | :--- | :--- |
 | **Microcontroller-based** | **Microcontroller ($\text{MCU}$)** | Designed for **simple control tasks, low power, and high efficiency.** Ideal for systems with minimal processing needs. **Examples:** $\text{IoT}$ sensors, basic smart appliances. |
-| **Microprocessor-based** | **Microprocessor ($\mu$P)** | Built to handle **demanding tasks and run complex Operating Systems ($\text{OS}$).** Provides higher general performance and multi-tasking capabilities. **Examples:** Smartphones, tablets, advanced computing devices. |
+| **Microprocessor-based** | **Microprocessor (μP)** | Built to handle **demanding tasks and run complex Operating Systems ($\text{OS}$).** Provides higher general performance and multi-tasking capabilities. **Examples:** Smartphones, tablets, advanced computing devices. |
 | **Application-Specific** | **Highly Optimized Core(s)** | **Custom-designed for a single, high-performance task.** Optimized for maximum speed and efficiency in a specific domain. **Examples:** Dedicated Graphics Cards ($\text{GPUs}$), $\text{AI}$/Machine Learning accelerators. |
 
 ***
@@ -146,8 +146,81 @@ The $\text{SoC}$ integrates a mix of digital and analog/mixed-signal $\text{IP}$
 | :--- | :--- | :--- | :--- |
 | **RVMYTH Microprocessor** | Digital ($\text{RISC-V CPU}$) | Originally designed in **TL-Verilog** and converted to standard $\text{Verilog}$ using the **Sandpiper-SaaS** tool. | [shivanishah269/risc-v-core](https://github.com/shivanishah269/risc-v-core) |
 | **10-bit DAC** | Analog | Modeled in $\text{Verilog}$ using the **`real` datatype** to simulate analog behavior, allowing functional verification. | [vsdip/rvmyth\_avsddac\_interface](https://github.com/vsdip/rvmyth_avsddac_interface) |
-| **PLL (AVSDPLL)** | Analog/Mixed-Signal | Modeled in $\text{Verilog}$ using the **`real` datatype**. *Note: The initial model was updated to $\text{AVSDPLL}$ to ensure sufficiency for the physical design flow.* | Initial: [vsdip/rvmyth\_avsdpll\_interface](https://github.com/vsdip/rvmyth_avsdpll_interface) $\implies$ Final: [lakshmi-sathi/avsdpll\_1v8](https://github.com/lakshmi-sathi/avsdpll_1v8) |
+| **PLL (AVSDPLL)** | Analog/Mixed-Signal | Modeled in $\text{Verilog}$ using the **`real` datatype**. *Note: The initial model was updated to $\text{AVSDPLL}$  to ensure sufficiency for the physical design flow.* | Initial: [vsdip/rvmyth\_avsdpll\_interface](https://github.com/vsdip/rvmyth_avsdpll_interface) $\implies$ Final: [lakshmi-sathi/avsdpll\_1v8](https://github.com/lakshmi-sathi/avsdpll_1v8) |
 
 **Digital-Analog Modeling Note:** Since standard $\text{Verilog}$ synthesis tools cannot process analog circuits, the $\text{PLL}$ and $\text{DAC}$ are functionally modeled using the $\text{Verilog}$ **`real` datatype** to simulate their behavior during the digital simulation phase.
 
-***
+***  
+
+## Project Setup and Guide
+
+### Prerequisites (Pre-requirements) ⚙️
+
+  * $\text{Icarus Verilog}$ for compilation.
+  * $\text{GTKWave}$ for viewing waveforms.
+  * $\text{Linux}$ environment.
+
+### 1\. Setup and Prepare Project Directory
+
+| Command | Purpose |
+| :--- | :--- |
+| **Project Navigation** | |
+| `git clone https://github.com/manili/VSDBabySoC.git` | Clones the repository to your local machine. |
+| `cd VSDBabySoC` | Enters the project root directory. |
+| **Sandpiper Setup** | |
+| `sudo apt update` | Updates the package list. |
+| `sudo apt install python3-venv python3-pip` | Installs necessary Python tools. |
+| `python3 -m venv sp_env` | Creates a Python virtual environment. |
+| `source sp_env/bin/activate` | **Activates** the virtual environment. |
+| `pip install pyyaml click sandpiper-saas` | Installs the $\text{Sandpiper-SaaS}$ tool. |
+| **Compile $\text{TL-Verilog}$ to $\text{RTL}$** | |
+| `sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/` | Compiles the $\text{TL-Verilog}$ file (`rvmyth.tlv`) into standard $\text{Verilog}$ ($\text{rvmyth.v}$). |  
+![week2_output](screenshots/week2_1.png) 
+
+-----
+
+## 2\. Pre-Synthesis Simulation
+
+### A. Compile, Run Simulation, and View Waveforms (Pre-Synthesis Simulation)
+
+| Command | Purpose |
+| :--- | :--- |
+| **Prepare Output & Compile** | |
+| `mkdir -p output/pre_synth_sim` | Creates the directory for simulation output files. |
+| `iverilog -o output/pre_synth_sim/pre_synth_sim.out -DPRE_SYNTH_SIM -I src/include -I src/module src/module/testbench.v` | **Compiles the $\text{SoC}$ $\text{RTL}$** into an executable (`pre_synth_sim.out`). |
+| **Execute Simulation** | |
+| `cd output/pre_synth_sim` | Navigates to the output directory. |
+| `./pre_synth_sim.out` | **Runs the simulation** and generates the waveform data file (`pre_synth_sim.vcd`). |
+| **View Waveform** | |
+| `gtkwave pre_synth_sim.vcd` | **Opens the waveform file** in $\text{GTKWave}$. |  
+
+![week2_output](screenshots/week2_4.png)  
+![week2_output](screenshots/week2_2.png)  
+![week2_output](screenshots/week2_3.png) 
+
+### Key Signals for Functional Simulation Analysis
+
+| Signal Name | Source Module / Register | Type / Role | Description for Analysis |
+| :--- | :--- | :--- | :--- |
+| **CLK** | **PLL** ($\text{Phase-Locked Loop}$) | **Input to $\text{RVMYTH}$** | Primary clock signal. Verify stability. |
+| **reset** | **External Source** | **Input to $\text{RVMYTH}$** | System reset signal. Verify correct processor initialization. |
+| **RV\_TO\_DAC[9:0]** | **RVMYTH** (Register \#17) | **10-bit Digital Output** | Digital data stream generated by the $\text{CPU}$ for the $\text{DAC}$. |
+| **OUT (DAC Output)** | **DAC** (Digital-to-Analog Converter) | **`real` Datatype Wire** | Represents the analog voltage output. |
+
+### B. RTL Synthesis using Yosys
+
+The $\text{Yosys}$ script below synthesizes the $\text{VSDBabySoC}$ to a gate-level netlist using the $\text{sky130}$ and custom $\text{IP}$ library files.
+
+```verilog
+yosys
+yosys> read_verilog -sv -I src/include/ -I src/module/ src/module/vsdbabysoc.v src/module/clk_gate.v src/module/rvmyth.v
+yosys> read_liberty -lib /home/nivetha/vsd/vlsi/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> read_liberty -lib src/lib/avsddac.lib
+yosys> read_liberty -lib src/lib/avsdpll.lib
+yosys> read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> synth -top vsdbabysoc
+yosys> write_verilog vsdbabysoc.synth.v
+yosys> abc -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show vsdbabysoc
+```
+![week2_output](screenshots/week2_5.png)   
